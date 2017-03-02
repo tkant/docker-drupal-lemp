@@ -14,10 +14,6 @@ php_nginx:
 db:
   build: ./db/
   environment:
-    RDA_DB: desiadda
-    RDA_DB_USERNAME: desiadda
-    RDA_DB_PASSWORD: desiadda
-    MARIADB_PASS: l0b7V8cjR3Pr
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   ports:
     - "3306:3306"

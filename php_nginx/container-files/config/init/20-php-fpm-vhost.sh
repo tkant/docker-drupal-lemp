@@ -8,9 +8,9 @@
 VHOSTS_DEFAULT_SOURCE_CONF="/config/init/vhost-default.conf"
 VHOSTS_DEFAULT_TARGET_CONF="/etc/nginx/hosts.d/default.conf"
 
-echo "=============================================================="
+echo "========================================================================"
 echo "Creating hosting directory &  Fixing permission as per drupal standards"
-echo "=============================================================="
+echo "========================================================================"
 
 cat $VHOSTS_DEFAULT_SOURCE_CONF > $VHOSTS_DEFAULT_TARGET_CONF
 
