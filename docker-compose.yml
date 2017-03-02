@@ -1,0 +1,36 @@
+php_nginx:
+  build: ./php_nginx/
+  ports:
+    - "80:80"
+    - "443:443"
+  # Link db host to webserver
+  links:
+    - db
+    - elasticsearch
+  volumes:
+    - ./code:/data/www/default
+  mem_limit: 512m
+
+db:
+  build: ./db/
+  environment:
+    RDA_DB: desiadda
+    RDA_DB_USERNAME: desiadda
+    RDA_DB_PASSWORD: desiadda
+    MARIADB_PASS: l0b7V8cjR3Pr
+    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  ports:
+    - "3306:3306"
+  volumes:
+    - ./db/db_data:/var/lib/mysql
+  mem_limit: 512m
+
+elasticsearch:
+  build: ./elasticsearch/
+  mem_limit: 512m
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volumes:
+    - ./elasticsearch/es_data:/usr/share/elasticsearch/data
+    - ./elasticsearch/config:/usr/share/elasticsearch/config
